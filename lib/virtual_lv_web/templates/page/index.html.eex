@@ -1,0 +1,18 @@
+<div style="background: yellow; font-weight: 800">
+   First seed database with: mix run priv/repo/seeds.exs
+</div>
+<div style="background: orange; margin-top: 20px">
+  @posts renders correctly in template:
+</div>
+<div style="background: green">
+  <%= for post <- @posts do %>
+    <div><%= post.virtual %></div>
+  <% end %>
+</div>
+
+<div style="background: orange; margin-top: 20px">
+  @posts renders incorrectly in live_view:
+</div>
+<div style="background: red">
+  <%= Phoenix.LiveView.live_render(@conn, VirtualLvWeb.TestLive, session: %{posts: @posts}) %>
+</div>
